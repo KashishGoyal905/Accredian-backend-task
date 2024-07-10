@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const app = express();
 const prisma = new PrismaClient();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 
