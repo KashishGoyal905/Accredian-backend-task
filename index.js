@@ -1,6 +1,4 @@
-require('dotenv').config();  // Ensure dotenv is required at the top
-
-
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const { PrismaClient } = require('@prisma/client');
@@ -9,10 +7,9 @@ const app = express();
 const prisma = new PrismaClient();
 const port = process.env.PORT || 8000;
 
-//app.use(bodyParser.json());
 app.use(express.json());
 
-app.use(express.json()); // parse the data coming from the frontend fecth
+app.use(express.json());
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -35,12 +32,11 @@ app.post('/referrals', async (req, res) => {
         });
         console.log('Data saved:', referral);
 
-        // Send email notification (set up your email details here)
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'resetpass905@gmail.com', // email service id
-                pass: 'afkrgeiwdsuhecdl', // email service Password(App Password)
+                user: 'resetpass905@gmail.com',
+                pass: 'afkrgeiwdsuhecdl'
             },
             host: 'smtp.gmail.com',
             secure: false
