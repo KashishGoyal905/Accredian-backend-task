@@ -8,10 +8,8 @@ datasource db {
 }
 
 model Referral {
-  id           Int      @id @default(autoincrement())
   referrerName String
   referrerEmail String
   refereeName  String
   refereeEmail String
-  createdAt    DateTime @default(now())
 }
