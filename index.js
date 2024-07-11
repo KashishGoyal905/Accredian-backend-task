@@ -28,7 +28,7 @@ app.post('/referrals', async (req, res) => {
 
     try {
         const referral = await prisma.referral.create({
-            data: { referrerName, referrerEmail, refereeName, refereeEmail },
+            data: { id: Math.random(), referrerName, referrerEmail, refereeName, refereeEmail },
         });
         console.log('Data saved:', referral);
 
